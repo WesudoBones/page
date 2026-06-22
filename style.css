@@ -86,7 +86,7 @@ body {
   padding: 0 20px 40px;
 }
 
-/* ── HERO & PROFILE LAYOUT ───────────────────────────────────────── */
+/* ── HERO & PROFILE LAYOUT ACTUALIZADO ───────────────────────────── */
 .hero {
   min-height: auto;
   padding: 90px 0 16px; 
@@ -103,21 +103,22 @@ body {
 .hero-profile-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: flex-start; /* Hace que se junten hacia la izquierda */
+  gap: 12px; /* Espacio reducido para acercar a Sans a tu nombre */
   margin-bottom: 8px;
 }
 
 .hero-text-block {
-  flex: 1;
+  flex-grow: 0; /* Evita que el bloque empuje la imagen lejos */
 }
 
 .hero-avatar-block {
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
 .hero-avatar {
-  width: 90px;
+  width: 110px; /* Imagen un poco más grande */
   height: auto;
   image-rendering: pixelated;
   display: block;
@@ -304,7 +305,7 @@ body {
   .nav-bar  { padding: 4px; width: 92%; }
   .nav-link { font-size: 8px; padding: 4px 6px; }
   .hero     { padding: 90px 0 12px; }
-  .hero-profile-container { gap: 10px; }
-  .hero-avatar { width: 65px; }
+  .hero-profile-container { gap: 8px; }
+  .hero-avatar { width: 85px; }
   .about-card { font-size: 20px; }
 }
