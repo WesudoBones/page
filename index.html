@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<audio src="Donkey Kong Country OST (Super Nintendo) - Track 0223 - Simian Segue.mp3" autoplay loop controls style="display: none;" id="bg-music"></audio>
+<audio src="Donkey Kong Country OST (Super Nintendo) - Track 0223 - Simian Segue.mp3" loop id="bg-music" style="display: none;"></audio>
 
 <div class="bg-gif"></div>
 <div class="bg-overlay"></div>
@@ -175,20 +175,19 @@
     <p>Christopher Osnayo Mamani &nbsp;·&nbsp; <span>CCOMP</span> &nbsp;·&nbsp; UCSP &nbsp;·&nbsp; 2026</p>
   </footer>
 
+</div>
+
 <script>
   window.addEventListener('click', () => {
     const music = document.getElementById('bg-music');
-    
     if (music) {
-      music.volume = 0.15;
-      
+      music.volume = 0.15; 
       if (music.paused) {
-        music.play().catch(err => console.log("Error al reproducir:", err));
+        music.play().catch(err => console.log("Audio play blocked:", err));
       }
     }
   }, { once: true });
 </script>
 
-</div>
 </body>
 </html>
