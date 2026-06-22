@@ -181,7 +181,7 @@
   window.addEventListener('click', () => {
     const music = document.getElementById('bg-music');
     if (music) {
-      music.volume = 0.15; 
+      music.volume = 0.10; 
       music.loop = true;
       if (music.paused) {
         music.play().catch(err => console.log("Audio play blocked:", err));
