@@ -182,6 +182,7 @@
     const music = document.getElementById('bg-music');
     if (music) {
       music.volume = 0.15; 
+      music.loop = true;
       if (music.paused) {
         music.play().catch(err => console.log("Audio play blocked:", err));
       }
