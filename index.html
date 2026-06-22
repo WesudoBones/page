@@ -174,16 +174,21 @@
   <footer class="footer">
     <p>Christopher Osnayo Mamani &nbsp;·&nbsp; <span>CCOMP</span> &nbsp;·&nbsp; UCSP &nbsp;·&nbsp; 2026</p>
   </footer>
+
 <script>
   window.addEventListener('click', () => {
     const music = document.getElementById('bg-music');
-    music.volume = 0.15; 
     
-    if (music.paused) {
-      music.play();
+    if (music) {
+      music.volume = 0.15;
+      
+      if (music.paused) {
+        music.play().catch(err => console.log("Error al reproducir:", err));
+      }
     }
   }, { once: true });
 </script>
+
 </div>
 </body>
 </html>
