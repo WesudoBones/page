@@ -86,7 +86,7 @@ body {
   padding: 0 20px 40px;
 }
 
-/* ── HERO & PROFILE LAYOUT (Sans-Fight Ajustado) ────────────────── */
+/* ── HERO & PROFILE LAYOUT (Sans-Fight Modificado) ──────────────── */
 .hero {
   min-height: auto;
   padding: 90px 0 16px; 
@@ -104,7 +104,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start; 
-  gap: 16px; /* Lo acerca un poco más a tu nombre */
   margin-bottom: 8px;
 }
 
@@ -120,14 +119,15 @@ body {
 .gif-link {
   display: block;
   text-decoration: none;
-  cursor: pointer; /* Cursor de mano para denotar que es clickeable */
+  cursor: pointer; 
 }
 
 .hero-avatar {
-  width: 120px; /* Tamaño más grande ideal para la animación */
+  width: 150px; /* Tamaño del GIF aumentado de 120px a 150px */
   height: auto;
   image-rendering: pixelated;
   display: block;
+  margin-left: 25px; /* Mueve el GIF un poco más hacia la derecha */
 }
 
 .hero-name {
@@ -311,7 +311,7 @@ body {
   .nav-bar  { padding: 4px; width: 92%; }
   .nav-link { font-size: 8px; padding: 4px 6px; }
   .hero     { padding: 90px 0 12px; }
-  .hero-profile-container { gap: 10px; }
-  .hero-avatar { width: 95px; } /* Ajuste de tamaño en pantallas pequeñas */
+  .hero-profile-container { gap: 8px; flex-direction: column; align-items: flex-start; }
+  .hero-avatar { width: 110px; margin-left: 0; margin-top: 10px; } /* Adaptación móvil limpia */
   .about-card { font-size: 20px; }
 }
