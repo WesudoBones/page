@@ -1,26 +1,15 @@
-/* ── FUENTE UNDERTALE (Determination Mono) ────────────────────────
-   Descargada de Google Fonts como la más cercana disponible en web.
-──────────────────────────────────────────────────────────────────── */
+/* ── FUENTE UNDERTALE (Determination Mono / Press Start 2P) ──────── */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
 /* ── VARIABLES ───────────────────────────────────────────────────── */
 :root {
-  --purple:     #7F77DD;
-  --purple-lt:  #AFA9EC;
-  --teal:       #1D9E75;
-  --teal-lt:    #5DCAA5;
-  --coral:      #D4537E;
-  --coral-lt:   #ED93B1;
-  --amber:      #BA7517;
-  --amber-lt:   #FAC775;
-  --blue:       #378ADD;
-  --bg:         #000000; /* Fondo negro absoluto fiel a Undertale */
-  --text:       #ffffff; /* Texto blanco puro */
+  --bg:         #000000; /* Fondo negro absoluto */
+  --text:       #ffffff; /* Texto blanco puro de los diálogos */
   --muted:      #aaaaaa;
   
   /* Fuentes */
-  --font-pixel: 'Press Start 2P', monospace;   /* Títulos e interfaz */
-  --font-retro: 'VT323', monospace;             /* Diálogos y citas */
+  --font-pixel: 'Press Start 2P', monospace;   
+  --font-retro: 'VT323', monospace;             
 }
 
 /* ── RESET ───────────────────────────────────────────────────────── */
@@ -28,15 +17,15 @@
 
 body {
   font-family: var(--font-retro);
-  font-size: 22px;
+  font-size: 24px;
   background-color: var(--bg);
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-/* ── FONDO (MANTENIDO) ───────────────────────────────────────────── */
+/* ── FONDO (CONSERVA TU IMAGEN) ──────────────────────────────────── */
 .bg-gif {
   position: fixed;
   inset: 0;
@@ -51,67 +40,43 @@ body {
   position: fixed;
   inset: 0;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.85); /* Un poco más oscuro para acentuar el contraste retro */
+  background: rgba(0, 0, 0, 0.90); /* Mayor opacidad para que resalten las cajas de diálogo de la imagen */
 }
 
-/* ── ORBES DE COLOR ──────────────────────────────────────────────── */
-.orbs {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-}
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.08;
-  animation: drift 12s ease-in-out infinite alternate;
-}
-.orb-1 { width: 420px; height: 420px; background: var(--purple); top: -80px;  left: -100px; }
-.orb-2 { width: 320px; height: 320px; background: var(--teal);   top: 30%;    right: -60px; }
-.orb-3 { width: 260px; height: 260px; background: var(--coral);  bottom: 10%; left: 30%; }
-
-@keyframes drift {
-  from { transform: translate(0, 0) scale(1); }
-  to   { transform: translate(20px, 15px) scale(1.05); }
-}
-
-/* ── INTERFAZ CAJA DE DIÁLOGO DE UNDERTALE (DIALOUGE BOX) ─────────── */
+/* ── BORDE DOBLE FIEL A UNDERTALE (Basado en image_9b52ae.png) ───── */
 .dialogue-box {
   background: #000000 !important;
   color: #ffffff !important;
-  border: 6px solid #ffffff !important;
-  border-radius: 0px !important; /* Esquinas de pixeles, nunca redondeadas */
-  box-shadow: 0 0 0 6px #000000;
+  /* Simulación exacta del doble borde blanco y negro del juego */
+  border: 4px solid #ffffff !important;
+  box-shadow: 0 0 0 4px #000000, 0 0 0 8px #ffffff !important;
+  border-radius: 0px !important;
   image-rendering: pixelated;
 }
 
-/* ── NAVEGACIÓN (Estilo menú de selección de batalla) ────────────── */
+/* ── NAVEGACIÓN ──────────────────────────────────────────────────── */
 .nav-bar {
   position: fixed;
-  top: 24px;
+  top: 16px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-  background: #000000;
-  border: 4px solid #ffffff;
-  border-radius: 0px;
-  padding: 6px 16px;
+  padding: 4px 12px;
   display: flex;
-  gap: 8px;
+  gap: 4px;
+  box-shadow: 0 0 0 3px #000000, 0 0 0 6px #ffffff !important; /* Borde levemente más delgado para el menú */
+  border: 3px solid #ffffff !important;
 }
 .nav-link {
   font-family: var(--font-pixel);
   font-size: 10px;
   color: #ffffff;
   text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 0px;
+  padding: 6px 10px;
   text-transform: uppercase;
 }
 .nav-link:hover {
-  color: #ffeb3b; /* Color amarillo de selección de Undertale */
+  color: #ffeb3b; /* Efecto de selección amarilla del menú */
   background: rgba(255, 255, 255, 0.1);
 }
 
@@ -119,82 +84,77 @@ body {
 .wrapper {
   position: relative;
   z-index: 3;
-  max-width: 860px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0 24px 80px;
+  padding: 0 24px 40px;
 }
 
-/* ── HERO ────────────────────────────────────────────────────────── */
+/* ── HERO (Distancias reducidas considerablemente) ───────────────── */
 .hero {
-  min-height: 45vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 100px 0 40px;
+  min-height: auto;
+  padding: 100px 0 20px; /* Margen superior reducido */
 }
 
 .hero-tag {
   display: inline-block;
   font-family: var(--font-pixel);
-  font-size: 9px;
-  color: #ffeb3b;
-  border: 3px solid #ffeb3b;
-  padding: 6px 12px;
-  border-radius: 0px;
-  margin-bottom: 24px;
-  width: max-content;
+  font-size: 10px;
+  color: #ffffff;
+  margin-bottom: 12px;
 }
 
 .hero-name {
   font-family: var(--font-pixel);
-  font-size: clamp(24px, 5vw, 56px);
+  font-size: clamp(24px, 5vw, 48px);
   font-weight: 400;
-  line-height: 1.2;
-  margin-bottom: 16px;
+  line-height: 1.1;
+  margin-bottom: 12px;
 }
-.hero-name .first { color: #ffffff; display: block; }
-.hero-name .last { color: #ffeb3b; display: block; } /* Color de acento clásico */
+.hero-name .first, 
+.hero-name .last { 
+  color: #ffffff; /* Eliminado cualquier rastro de degradado o morado */
+  display: block; 
+}
 
 .hero-subtitle {
   font-family: var(--font-retro);
   font-size: 26px;
   color: var(--muted);
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 .hero-subtitle span { color: #ffffff; }
 
+/* INSIGNIA "VIDEOJUEGOS" */
 .hero-badges {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  margin-top: 4px;
 }
 .badge {
   font-family: var(--font-pixel);
-  font-size: 8px;
-  padding: 8px 12px;
-  border-radius: 0px;
-  border: 3px solid #ffffff;
+  font-size: 10px;
+  padding: 8px 16px;
   background: #000000;
   color: #ffffff;
+  border: 3px solid #ffffff !important;
+  box-shadow: 0 0 0 3px #000000, 0 0 0 6px #ffffff !important;
 }
 
-/* ── DIVISOR PIXELADO ────────────────────────────────────────────── */
+/* ── DIVISOR DE ESCENA ───────────────────────────────────────────── */
 .divider {
-  height: 6px;
+  height: 4px;
   background: #ffffff;
-  margin: 40px 0;
-  position: relative;
+  margin: 24px 0;
 }
 
 /* ── SECCIONES ───────────────────────────────────────────────────── */
-.section { margin-bottom: 64px; }
+.section { margin-bottom: 40px; } /* Distancia entre bloques reducida */
 
 .section-label {
   font-family: var(--font-pixel);
   font-size: 11px;
   text-transform: uppercase;
   color: #ffffff;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -208,49 +168,44 @@ body {
 
 .section-title {
   font-family: var(--font-pixel);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
-  margin-bottom: 24px;
-  color: #ffeb3b;
+  margin-bottom: 16px;
+  color: #ffffff;
 }
 
-/* ── SOBRE MÍ (ESTILO DIÁLOGO ORWELL) ────────────────────────────── */
+/* ── CUADROS DE TEXTO (SOBRE MÍ, ESTUDIOS, CURSOS) ──────────────── */
 .about-card {
   padding: 24px;
-  font-size: 24px;
+  font-size: 26px;
 }
 .quote-author {
   display: block;
   text-align: right;
-  color: #ffeb3b;
+  color: var(--muted);
   font-family: var(--font-pixel);
   font-size: 11px;
-  margin-top: 16px;
+  margin-top: 12px;
 }
 
-/* ── TARJETAS ESTUDIOS ───────────────────────────────────────────── */
+/* ESTUDIOS */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  gap: 24px; /* Espaciado entre cajas alineado al diseño */
 }
 .card {
-  padding: 24px;
-  transition: transform 0.1s;
-}
-.card:hover {
-  transform: scale(1.02);
-  border-color: #ffeb3b !important;
+  padding: 20px;
 }
 .card-icon {
-  font-size: 28px;
-  margin-bottom: 12px;
+  font-size: 24px;
+  margin-bottom: 8px;
 }
 .card-name {
   font-family: var(--font-pixel);
   font-size: 11px;
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 .card-sub {
   font-family: var(--font-retro);
@@ -258,37 +213,24 @@ body {
   color: var(--muted);
 }
 
-/* ── CURSOS ──────────────────────────────────────────────────────── */
-.course-list { display: flex; flex-direction: column; gap: 16px; }
+/* CURSOS */
+.course-list { display: flex; flex-direction: column; gap: 24px; }
 
 .course-item {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 16px 24px;
+  gap: 16px;
+  padding: 16px 20px;
   text-decoration: none;
 }
-.course-item:hover { 
-  border-color: #ffeb3b !important;
-}
 .course-item:hover .course-arrow {
-  color: #e91e63; /* Corazón rojo de determinación en el hover */
+  color: #ffeb3b;
 }
-
-.course-dot {
-  width: 12px; height: 12px;
-  border-radius: 0px; /* Cuadrados pixel */
-  flex-shrink: 0;
-}
-.dot-teal   { background: #ffffff; }
-.dot-coral  { background: #ffffff; }
-.dot-amber  { background: #ffffff; }
-.dot-blue   { background: #ffffff; }
 
 .course-info { flex: 1; }
 .course-name {
   font-family: var(--font-pixel);
-  font-size: 10px;
+  font-size: 11px;
   color: #ffffff;
   margin-bottom: 4px;
 }
@@ -300,43 +242,37 @@ body {
 .course-arrow { 
   color: #ffffff; 
   font-family: var(--font-pixel); 
-  font-size: 16px; 
-  transition: color 0.1s;
+  font-size: 14px; 
 }
 
 /* ── SECCIÓN AMIGOS ──────────────────────────────────────────────── */
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  gap: 24px;
 }
 .contact-link {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   padding: 16px;
   text-decoration: none;
   font-family: var(--font-pixel);
   font-size: 11px;
 }
-.contact-link:hover {
-  border-color: #ffeb3b !important;
-}
 .contact-link:hover .contact-icon {
-  color: #e91e63; /* El alma se vuelve roja (determinación) al pasar el cursor */
-  transform: scale(1.2);
+  color: #ffeb3b;
 }
 
 .contact-icon {
-  font-size: 18px;
+  font-size: 14px;
   color: #ffffff;
-  transition: color 0.1s, transform 0.1s;
 }
 .contact-label {
   font-family: var(--font-pixel);
   font-size: 9px;
-  color: #ffeb3b;
-  margin-bottom: 4px;
+  color: #ffffff;
+  margin-bottom: 2px;
 }
 
 /* ── FOOTER ──────────────────────────────────────────────────────── */
@@ -344,18 +280,18 @@ body {
   text-align: center;
   font-family: var(--font-pixel);
   font-size: 9px;
-  color: #555555;
-  padding-top: 32px;
+  color: #777777;
+  padding-top: 20px;
   margin-top: 40px;
   border-top: 4px solid #ffffff;
 }
-.footer span { color: #e91e63; }
+.footer span { color: #ffffff; }
 
 /* ── RESPONSIVE ──────────────────────────────────────────────────── */
 @media (max-width: 600px) {
-  .nav-bar  { padding: 6px 8px; width: 90%; justify-content: center; }
-  .nav-link { font-size: 8px; padding: 4px 6px; }
-  .hero     { padding: 120px 0 20px; }
-  .about-card { font-size: 20px; }
-  .section-title { font-size: 16px; }
+  .nav-bar  { padding: 4px; width: 90%; }
+  .nav-link { font-size: 8px; padding: 4px; }
+  .hero     { padding: 100px 0 16px; }
+  .about-card { font-size: 22px; }
+  .section-title { font-size: 14px; }
 }
