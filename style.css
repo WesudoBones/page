@@ -1,7 +1,5 @@
 /* ── FUENTE UNDERTALE (Determination Mono) ────────────────────────
    Descargada de Google Fonts como la más cercana disponible en web.
-   La fuente oficial de Undertale es "Determination Mono" / "8-bit Operator".
-   Usamos "Press Start 2P" que es la versión web más fiel al estilo pixel retro.
 ──────────────────────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
@@ -16,32 +14,29 @@
   --amber:      #BA7517;
   --amber-lt:   #FAC775;
   --blue:       #378ADD;
-  --bg:         #0b0b14;
-  --text:       #f0ede8;
-  --muted:      #888780;
-  --card-bg:    rgba(255,255,255,0.04);
-  --card-border: rgba(255,255,255,0.08);
-
+  --bg:         #000000; /* Fondo negro absoluto fiel a Undertale */
+  --text:       #ffffff; /* Texto blanco puro */
+  --muted:      #aaaaaa;
+  
   /* Fuentes */
-  --font-pixel: 'Press Start 2P', monospace;   /* títulos grandes */
-  --font-retro: 'VT323', monospace;             /* cuerpo / párrafos */
+  --font-pixel: 'Press Start 2P', monospace;   /* Títulos e interfaz */
+  --font-retro: 'VT323', monospace;             /* Diálogos y citas */
 }
 
 /* ── RESET ───────────────────────────────────────────────────────── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ── BASE ────────────────────────────────────────────────────────── */
 body {
   font-family: var(--font-retro);
-  font-size: 20px;
+  font-size: 22px;
   background-color: var(--bg);
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-/* ── FONDO GIF AGUJERO NEGRO ─────────────────────────────────────── */
+/* ── FONDO (MANTENIDO) ───────────────────────────────────────────── */
 .bg-gif {
   position: fixed;
   inset: 0;
@@ -52,12 +47,11 @@ body {
   background-repeat: no-repeat;
 }
 
-/* Overlay oscuro para legibilidad */
 .bg-overlay {
   position: fixed;
   inset: 0;
   z-index: 1;
-  background: rgba(8, 5, 20, 0.72);
+  background: rgba(0, 0, 0, 0.85); /* Un poco más oscuro para acentuar el contraste retro */
 }
 
 /* ── ORBES DE COLOR ──────────────────────────────────────────────── */
@@ -70,47 +64,56 @@ body {
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.12;
+  filter: blur(100px);
+  opacity: 0.08;
   animation: drift 12s ease-in-out infinite alternate;
 }
-.orb-1 { width: 420px; height: 420px; background: var(--purple); top: -80px;  left: -100px; animation-delay: 0s; }
-.orb-2 { width: 320px; height: 320px; background: var(--teal);   top: 30%;    right: -60px; animation-delay: -4s; }
-.orb-3 { width: 260px; height: 260px; background: var(--coral);  bottom: 10%; left: 30%;    animation-delay: -8s; }
+.orb-1 { width: 420px; height: 420px; background: var(--purple); top: -80px;  left: -100px; }
+.orb-2 { width: 320px; height: 320px; background: var(--teal);   top: 30%;    right: -60px; }
+.orb-3 { width: 260px; height: 260px; background: var(--coral);  bottom: 10%; left: 30%; }
 
 @keyframes drift {
-  from { transform: translate(0,   0)   scale(1); }
-  to   { transform: translate(30px,20px) scale(1.08); }
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(20px, 15px) scale(1.05); }
 }
 
-/* ── NAVEGACIÓN ──────────────────────────────────────────────────── */
+/* ── INTERFAZ CAJA DE DIÁLOGO DE UNDERTALE (DIALOUGE BOX) ─────────── */
+.dialogue-box {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 6px solid #ffffff !important;
+  border-radius: 0px !important; /* Esquinas de pixeles, nunca redondeadas */
+  box-shadow: 0 0 0 6px #000000;
+  image-rendering: pixelated;
+}
+
+/* ── NAVEGACIÓN (Estilo menú de selección de batalla) ────────────── */
 .nav-bar {
   position: fixed;
   top: 24px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-  background: rgba(11,11,20,0.65);
-  border: 1px solid rgba(255,255,255,0.1);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 100px;
-  padding: 10px 24px;
+  background: #000000;
+  border: 4px solid #ffffff;
+  border-radius: 0px;
+  padding: 6px 16px;
   display: flex;
-  gap: 4px;
-  white-space: nowrap;
+  gap: 8px;
 }
 .nav-link {
   font-family: var(--font-pixel);
-  font-size: 8px;
-  color: var(--muted);
+  font-size: 10px;
+  color: #ffffff;
   text-decoration: none;
   padding: 8px 12px;
-  border-radius: 100px;
-  letter-spacing: 0.5px;
-  transition: background 0.2s, color 0.2s;
+  border-radius: 0px;
+  text-transform: uppercase;
 }
-.nav-link:hover { background: rgba(255,255,255,0.08); color: var(--text); }
+.nav-link:hover {
+  color: #ffeb3b; /* Color amarillo de selección de Undertale */
+  background: rgba(255, 255, 255, 0.1);
+}
 
 /* ── LAYOUT ──────────────────────────────────────────────────────── */
 .wrapper {
@@ -123,97 +126,74 @@ body {
 
 /* ── HERO ────────────────────────────────────────────────────────── */
 .hero {
-  min-height: 40vh;
+  min-height: 45vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 80px 0 60px;
+  padding: 100px 0 40px;
 }
 
 .hero-tag {
   display: inline-block;
   font-family: var(--font-pixel);
-  font-size: 8px;
-  letter-spacing: 2px;
-  color: var(--teal);
-  border: 1px solid var(--teal);
-  padding: 8px 16px;
-  border-radius: 4px;
-  margin-bottom: 36px;
-  opacity: 0;
-  animation: fadeUp 0.7s 0.2s forwards;
+  font-size: 9px;
+  color: #ffeb3b;
+  border: 3px solid #ffeb3b;
+  padding: 6px 12px;
+  border-radius: 0px;
+  margin-bottom: 24px;
+  width: max-content;
 }
 
 .hero-name {
   font-family: var(--font-pixel);
-  font-size: clamp(22px, 4.5vw, 52px);
+  font-size: clamp(24px, 5vw, 56px);
   font-weight: 400;
-  line-height: 1.3;
-  letter-spacing: -1px;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: fadeUp 0.7s 0.4s forwards;
+  line-height: 1.2;
+  margin-bottom: 16px;
 }
-.hero-name .first { color: var(--text); display: block; margin-bottom: 8px; }
-.hero-name .last {
-  display: block;
-  background: linear-gradient(90deg, var(--purple) 0%, var(--coral) 50%, var(--teal) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+.hero-name .first { color: #ffffff; display: block; }
+.hero-name .last { color: #ffeb3b; display: block; } /* Color de acento clásico */
 
 .hero-subtitle {
   font-family: var(--font-retro);
-  font-size: 22px;
+  font-size: 26px;
   color: var(--muted);
-  margin-bottom: 48px;
-  opacity: 0;
-  animation: fadeUp 0.7s 0.6s forwards;
+  margin-bottom: 36px;
 }
-.hero-subtitle span { color: var(--text); }
+.hero-subtitle span { color: #ffffff; }
 
 .hero-badges {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 0.7s 0.8s forwards;
 }
 .badge {
   font-family: var(--font-pixel);
-  font-size: 7px;
-  padding: 10px 16px;
-  border-radius: 4px;
-  border: 1px solid;
-  letter-spacing: 0.5px;
-  line-height: 1.6;
-}
-.badge-purple { background: rgba(127,119,221,0.12); border-color: rgba(127,119,221,0.4); color: var(--purple-lt); }
-.badge-teal   { background: rgba(29,158,117,0.12);  border-color: rgba(29,158,117,0.4);  color: var(--teal-lt); }
-.badge-coral  { background: rgba(212,83,126,0.12);  border-color: rgba(212,83,126,0.4);  color: var(--coral-lt); }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  font-size: 8px;
+  padding: 8px 12px;
+  border-radius: 0px;
+  border: 3px solid #ffffff;
+  background: #000000;
+  color: #ffffff;
 }
 
-/* ── DIVISOR ─────────────────────────────────────────────────────── */
+/* ── DIVISOR PIXELADO ────────────────────────────────────────────── */
 .divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(127,119,221,0.4), transparent);
-  margin: 60px 0;
+  height: 6px;
+  background: #ffffff;
+  margin: 40px 0;
+  position: relative;
 }
 
 /* ── SECCIONES ───────────────────────────────────────────────────── */
-.section { margin-bottom: 72px; }
+.section { margin-bottom: 64px; }
 
 .section-label {
   font-family: var(--font-pixel);
-  font-size: 8px;
-  letter-spacing: 2px;
+  font-size: 11px;
   text-transform: uppercase;
-  color: var(--purple);
+  color: #ffffff;
   margin-bottom: 24px;
   display: flex;
   align-items: center;
@@ -222,172 +202,160 @@ body {
 .section-label::after {
   content: '';
   flex: 1;
-  height: 1px;
-  background: rgba(127,119,221,0.2);
+  height: 4px;
+  background: #ffffff;
 }
 
 .section-title {
   font-family: var(--font-pixel);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 1.5;
-  margin-bottom: 28px;
-  color: var(--text);
+  margin-bottom: 24px;
+  color: #ffeb3b;
 }
 
-/* ── TARJETA SOBRE MÍ ────────────────────────────────────────────── */
+/* ── SOBRE MÍ (ESTILO DIÁLOGO ORWELL) ────────────────────────────── */
 .about-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 36px;
-  font-family: var(--font-retro);
-  font-size: 20px;
-  line-height: 1.8;
-  color: #B4B2A9;
+  padding: 24px;
+  font-size: 24px;
 }
-.about-card strong { color: var(--text); font-weight: 400; }
+.quote-author {
+  display: block;
+  text-align: right;
+  color: #ffeb3b;
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  margin-top: 16px;
+}
 
 /* ── TARJETAS ESTUDIOS ───────────────────────────────────────────── */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 .card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  padding: 28px 24px;
-  transition: border-color 0.25s, background 0.25s;
+  padding: 24px;
+  transition: transform 0.1s;
 }
-.card:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.18); }
-
+.card:hover {
+  transform: scale(1.02);
+  border-color: #ffeb3b !important;
+}
 .card-icon {
-  width: 44px; height: 44px;
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px;
-  margin-bottom: 16px;
+  font-size: 28px;
+  margin-bottom: 12px;
 }
-.icon-purple { background: rgba(127,119,221,0.2); }
-.icon-teal   { background: rgba(29,158,117,0.2); }
-.icon-coral  { background: rgba(212,83,126,0.2); }
-
 .card-name {
   font-family: var(--font-pixel);
-  font-size: 9px;
-  color: var(--text);
+  font-size: 11px;
+  color: #ffffff;
   margin-bottom: 8px;
-  line-height: 1.6;
 }
 .card-sub {
   font-family: var(--font-retro);
-  font-size: 16px;
+  font-size: 18px;
   color: var(--muted);
 }
 
 /* ── CURSOS ──────────────────────────────────────────────────────── */
-.course-list { display: flex; flex-direction: column; gap: 12px; }
+.course-list { display: flex; flex-direction: column; gap: 16px; }
 
 .course-item {
   display: flex;
   align-items: center;
   gap: 20px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  padding: 20px 24px;
+  padding: 16px 24px;
   text-decoration: none;
-  color: inherit;
-  transition: border-color 0.2s, background 0.2s;
 }
-.course-item:hover { background: rgba(255,255,255,0.07); border-color: rgba(127,119,221,0.3); }
+.course-item:hover { 
+  border-color: #ffeb3b !important;
+}
+.course-item:hover .course-arrow {
+  color: #e91e63; /* Corazón rojo de determinación en el hover */
+}
 
 .course-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
+  width: 12px; height: 12px;
+  border-radius: 0px; /* Cuadrados pixel */
   flex-shrink: 0;
 }
-.dot-purple { background: var(--purple); }
-.dot-teal   { background: var(--teal); }
-.dot-coral  { background: var(--coral); }
-.dot-amber  { background: var(--amber); }
-.dot-blue   { background: var(--blue); }
+.dot-teal   { background: #ffffff; }
+.dot-coral  { background: #ffffff; }
+.dot-amber  { background: #ffffff; }
+.dot-blue   { background: #ffffff; }
 
 .course-info { flex: 1; }
 .course-name {
   font-family: var(--font-pixel);
-  font-size: 8px;
-  color: var(--text);
-  line-height: 1.7;
-  margin-bottom: 6px;
+  font-size: 10px;
+  color: #ffffff;
+  margin-bottom: 4px;
 }
 .course-prof {
   font-family: var(--font-retro);
-  font-size: 16px;
+  font-size: 18px;
   color: var(--muted);
 }
-.course-arrow { color: var(--muted); font-size: 20px; flex-shrink: 0; }
+.course-arrow { 
+  color: #ffffff; 
+  font-family: var(--font-pixel); 
+  font-size: 16px; 
+  transition: color 0.1s;
+}
 
-/* ── CONTACTO ────────────────────────────────────────────────────── */
+/* ── SECCIÓN AMIGOS ──────────────────────────────────────────────── */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
 }
 .contact-link {
   display: flex;
   align-items: center;
-  gap: 14px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  padding: 20px;
+  gap: 16px;
+  padding: 16px;
   text-decoration: none;
-  color: var(--text);
   font-family: var(--font-pixel);
-  font-size: 9px;
-  line-height: 1.6;
-  transition: border-color 0.2s, background 0.2s;
+  font-size: 11px;
 }
-.contact-link:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.2); }
+.contact-link:hover {
+  border-color: #ffeb3b !important;
+}
+.contact-link:hover .contact-icon {
+  color: #e91e63; /* El alma se vuelve roja (determinación) al pasar el cursor */
+  transform: scale(1.2);
+}
 
 .contact-icon {
-  width: 38px; height: 38px;
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 16px;
-  flex-shrink: 0;
+  font-size: 18px;
+  color: #ffffff;
+  transition: color 0.1s, transform 0.1s;
 }
-
 .contact-label {
-  font-family: var(--font-retro);
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 2px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: #ffeb3b;
+  margin-bottom: 4px;
 }
 
 /* ── FOOTER ──────────────────────────────────────────────────────── */
 .footer {
   text-align: center;
   font-family: var(--font-pixel);
-  font-size: 7px;
-  line-height: 2;
-  color: #444441;
-  padding-top: 40px;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 9px;
+  color: #555555;
+  padding-top: 32px;
+  margin-top: 40px;
+  border-top: 4px solid #ffffff;
 }
-.footer span { color: var(--purple); }
+.footer span { color: #e91e63; }
 
 /* ── RESPONSIVE ──────────────────────────────────────────────────── */
 @media (max-width: 600px) {
-  .nav-bar  { padding: 8px 12px; gap: 0; }
-  .nav-link { font-size: 6px; padding: 6px 8px; }
-  .hero     { padding: 110px 0 40px; }
-  .hero-name { font-size: clamp(16px, 4vw, 28px); }
-  .about-card { padding: 20px; }
-  .section-title { font-size: 13px; }
+  .nav-bar  { padding: 6px 8px; width: 90%; justify-content: center; }
+  .nav-link { font-size: 8px; padding: 4px 6px; }
+  .hero     { padding: 120px 0 20px; }
+  .about-card { font-size: 20px; }
+  .section-title { font-size: 16px; }
 }
