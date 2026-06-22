@@ -5,7 +5,7 @@
   --bg:         #000000; 
   --text:       #ffffff; 
   --muted:      #bbbbbb;
-  --determination-red: #e91e63; /* El color del alma de Undertale */
+  --determination-red: #e91e63; 
   
   --font-pixel: 'Press Start 2P', monospace;   
   --font-retro: 'VT323', monospace;             
@@ -112,11 +112,14 @@ body {
   background: none !important;
   display: block; 
 }
+
+/* DEGRADADO Y BRILLO EN OSNAYO */
 .hero-name .last { 
-  color: var(--determination-red) !important; /* Apellido en color rojo Determinación */
-  background: none !important;
-  -webkit-text-fill-color: initial !important;
   display: block; 
+  background: linear-gradient(135deg, #ff1744 0%, #ff5252 50%, #ff8686 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 0 6px rgba(255, 23, 68, 0.8)) drop-shadow(0 0 12px rgba(255, 82, 82, 0.4)) !important;
 }
 
 .hero-subtitle {
@@ -139,6 +142,13 @@ body {
   color: #ffffff;
   border: 3px solid #ffffff !important;
   box-shadow: 0 0 0 3px #000000, 0 0 0 6px #ffffff !important;
+}
+
+/* ELEMENTO DE INTERACCIÓN OCULTO (EASTER EGG) */
+.secret-click {
+  color: inherit;
+  text-decoration: none;
+  cursor: text; /* Oculta el puntero de enlace de tipo manito */
 }
 
 /* ── DIVISOR ─────────────────────────────────────────────────────── */
@@ -168,18 +178,15 @@ body {
   background: #ffffff;
 }
 
-.section-title {
-  font-family: var(--font-pixel);
-  font-size: 15px;
-  font-weight: 400;
-  margin-bottom: 12px;
-  color: #ffffff;
-}
-
 /* ── CUADROS DE TEXTO DE DIÁLOGO ────────────────────────────────── */
 .about-card {
   padding: 20px;
   font-size: 24px;
+}
+.dialogue-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Controla la separación justa entre párrafos sin usar líneas vacías <br> */
 }
 .quote-author {
   display: block;
@@ -187,7 +194,7 @@ body {
   color: var(--muted);
   font-family: var(--font-pixel);
   font-size: 10px;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 /* ── CURSOS ──────────────────────────────────────────────────────── */
@@ -241,10 +248,10 @@ body {
   font-size: 11px;
 }
 .contact-link:hover {
-  border-color: var(--determination-red) !important; /* Borde rojo al pasar por encima */
+  border-color: var(--determination-red) !important;
 }
 .contact-link .contact-icon {
-  color: var(--determination-red); /* Los corazones son permanentemente rojos como el alma de Undertale */
+  color: var(--determination-red); 
   font-size: 16px;
   transition: transform 0.1s;
 }
