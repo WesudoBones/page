@@ -144,11 +144,11 @@ body {
   box-shadow: 0 0 0 3px #000000, 0 0 0 6px #ffffff !important;
 }
 
-/* ELEMENTO DE INTERACCIÓN OCULTO (EASTER EGG) */
-.secret-click {
+/* LINKS OCULTOS (EASTER EGGS) */
+.secret-link {
   color: inherit;
   text-decoration: none;
-  cursor: text; /* Oculta el puntero de enlace de tipo manito */
+  cursor: text; /* Mantiene el cursor normal para camuflarse con el texto básico */
 }
 
 /* ── DIVISOR ─────────────────────────────────────────────────────── */
@@ -178,7 +178,7 @@ body {
   background: #ffffff;
 }
 
-/* ── CUADROS DE TEXTO DE DIÁLOGO ────────────────────────────────── */
+/* ── CUADROS DE TEXTO DE DIÁLOGO CORREGIDOS (Líneas una debajo de otra) ── */
 .about-card {
   padding: 20px;
   font-size: 24px;
@@ -186,7 +186,7 @@ body {
 .dialogue-text {
   display: flex;
   flex-direction: column;
-  gap: 12px; /* Controla la separación justa entre párrafos sin usar líneas vacías <br> */
+  gap: 8px; /* Controla la separación exacta sin dejar huecos enormes */
 }
 .quote-author {
   display: block;
