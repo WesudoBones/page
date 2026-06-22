@@ -5,6 +5,7 @@
   --bg:         #000000; 
   --text:       #ffffff; 
   --muted:      #bbbbbb;
+  --determination-red: #e91e63; /* El color del alma de Undertale */
   
   --font-pixel: 'Press Start 2P', monospace;   
   --font-retro: 'VT323', monospace;             
@@ -106,9 +107,13 @@ body {
   line-height: 1.1;
   margin-bottom: 8px;
 }
-.hero-name .first, 
-.hero-name .last { 
+.hero-name .first { 
   color: #ffffff !important; 
+  background: none !important;
+  display: block; 
+}
+.hero-name .last { 
+  color: var(--determination-red) !important; /* Apellido en color rojo Determinación */
   background: none !important;
   -webkit-text-fill-color: initial !important;
   display: block; 
@@ -171,7 +176,7 @@ body {
   color: #ffffff;
 }
 
-/* ── SOBRE MÍ ────────────────────────────────────────────────────── */
+/* ── CUADROS DE TEXTO DE DIÁLOGO ────────────────────────────────── */
 .about-card {
   padding: 20px;
   font-size: 24px;
@@ -183,34 +188,6 @@ body {
   font-family: var(--font-pixel);
   font-size: 10px;
   margin-top: 8px;
-}
-
-/* ── ESTUDIOS ────────────────────────────────────────────────────── */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
-.card {
-  padding: 16px;
-}
-.card:hover {
-  border-color: #ffeb3b !important;
-}
-.card-icon {
-  font-size: 22px;
-  margin-bottom: 6px;
-}
-.card-name {
-  font-family: var(--font-pixel);
-  font-size: 11px;
-  color: #ffffff;
-  margin-bottom: 2px;
-}
-.card-sub {
-  font-family: var(--font-retro);
-  font-size: 18px;
-  color: var(--muted);
 }
 
 /* ── CURSOS ──────────────────────────────────────────────────────── */
@@ -264,21 +241,20 @@ body {
   font-size: 11px;
 }
 .contact-link:hover {
-  border-color: #ffeb3b !important;
+  border-color: var(--determination-red) !important; /* Borde rojo al pasar por encima */
+}
+.contact-link .contact-icon {
+  color: var(--determination-red); /* Los corazones son permanentemente rojos como el alma de Undertale */
+  font-size: 16px;
+  transition: transform 0.1s;
 }
 .contact-link:hover .contact-icon {
-  color: #e91e63; /* El alma '♥' se vuelve roja (Determinación) al pasar el cursor */
-}
-
-.contact-icon {
-  font-size: 16px;
-  color: #ffffff;
-  transition: color 0.1s;
+  transform: scale(1.2);
 }
 .contact-label {
   font-family: var(--font-pixel);
   font-size: 9px;
-  color: #ffeb3b; /* El indicador superior es amarillo estilo Undertale */
+  color: #ffeb3b; 
   margin-bottom: 4px;
 }
 
