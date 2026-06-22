@@ -1,13 +1,11 @@
-/* ── FUENTE UNDERTALE (Determination Mono / Press Start 2P) ──────── */
+/* ── FUENTES RETRO WEB ───────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
-/* ── VARIABLES ───────────────────────────────────────────────────── */
 :root {
-  --bg:         #000000; /* Fondo negro absoluto */
-  --text:       #ffffff; /* Texto blanco puro de los diálogos */
-  --muted:      #aaaaaa;
+  --bg:         #000000; /* Fondo negro absoluto sin tonos morados */
+  --text:       #ffffff; /* Blanco puro para los textos */
+  --muted:      #bbbbbb;
   
-  /* Fuentes */
   --font-pixel: 'Press Start 2P', monospace;   
   --font-retro: 'VT323', monospace;             
 }
@@ -22,10 +20,10 @@ body {
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
-/* ── FONDO (CONSERVA TU IMAGEN) ──────────────────────────────────── */
+/* ── FONDO (MANTENIDO) ───────────────────────────────────────────── */
 .bg-gif {
   position: fixed;
   inset: 0;
@@ -40,59 +38,59 @@ body {
   position: fixed;
   inset: 0;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.90); /* Mayor opacidad para que resalten las cajas de diálogo de la imagen */
+  background: rgba(0, 0, 0, 0.92); /* Opacidad alta para ocultar los brillos del fondo original */
 }
 
-/* ── BORDE DOBLE FIEL A UNDERTALE (Basado en image_9b52ae.png) ───── */
+/* ELIMINADOS POR COMPLETO LOS ORBES (.orbs, .orb) PARA QUITAR EL TONO MORADO */
+
+/* ── CAJA DE DIÁLOGO UNDERTALE (Borde doble pixelado rígido) ────── */
 .dialogue-box {
   background: #000000 !important;
   color: #ffffff !important;
-  /* Simulación exacta del doble borde blanco y negro del juego */
   border: 4px solid #ffffff !important;
-  box-shadow: 0 0 0 4px #000000, 0 0 0 8px #ffffff !important;
-  border-radius: 0px !important;
+  box-shadow: 0 0 0 4px #000000, 0 0 0 8px #ffffff !important; /* Estilo exacto de la interfaz de Sans */
+  border-radius: 0px !important; /* Esquinas totalmente rectas */
   image-rendering: pixelated;
 }
 
-/* ── NAVEGACIÓN ──────────────────────────────────────────────────── */
+/* ── NAVEGACIÓN COMPACTA ─────────────────────────────────────────── */
 .nav-bar {
   position: fixed;
-  top: 16px;
+  top: 12px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-  padding: 4px 12px;
+  padding: 4px 10px;
   display: flex;
   gap: 4px;
-  box-shadow: 0 0 0 3px #000000, 0 0 0 6px #ffffff !important; /* Borde levemente más delgado para el menú */
   border: 3px solid #ffffff !important;
+  box-shadow: 0 0 0 3px #000000, 0 0 0 6px #ffffff !important;
 }
 .nav-link {
   font-family: var(--font-pixel);
   font-size: 10px;
   color: #ffffff;
   text-decoration: none;
-  padding: 6px 10px;
-  text-transform: uppercase;
+  padding: 6px 12px;
 }
 .nav-link:hover {
-  color: #ffeb3b; /* Efecto de selección amarilla del menú */
-  background: rgba(255, 255, 255, 0.1);
+  color: #ffeb3b; /* Amarillo de selección de Undertale */
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* ── LAYOUT ──────────────────────────────────────────────────────── */
 .wrapper {
   position: relative;
   z-index: 3;
-  max-width: 800px;
+  max-width: 780px;
   margin: 0 auto;
-  padding: 0 24px 40px;
+  padding: 0 20px 40px;
 }
 
-/* ── HERO (Distancias reducidas considerablemente) ───────────────── */
+/* ── HERO (Distancias reducidas) ────────────────────────────────── */
 .hero {
   min-height: auto;
-  padding: 100px 0 20px; /* Margen superior reducido */
+  padding: 90px 0 16px; 
 }
 
 .hero-tag {
@@ -100,61 +98,63 @@ body {
   font-family: var(--font-pixel);
   font-size: 10px;
   color: #ffffff;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .hero-name {
   font-family: var(--font-pixel);
-  font-size: clamp(24px, 5vw, 48px);
+  font-size: clamp(24px, 5vw, 42px);
   font-weight: 400;
   line-height: 1.1;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 .hero-name .first, 
 .hero-name .last { 
-  color: #ffffff; /* Eliminado cualquier rastro de degradado o morado */
+  color: #ffffff !important; /* Eliminado el degradado, ahora es blanco puro */
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
   display: block; 
 }
 
 .hero-subtitle {
   font-family: var(--font-retro);
-  font-size: 26px;
+  font-size: 24px;
   color: var(--muted);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .hero-subtitle span { color: #ffffff; }
 
-/* INSIGNIA "VIDEOJUEGOS" */
+/* INSIGNIA "VIDEOJUEGOS" CORREGIDA */
 .hero-badges {
   display: flex;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 .badge {
   font-family: var(--font-pixel);
   font-size: 10px;
-  padding: 8px 16px;
+  padding: 6px 14px;
   background: #000000;
   color: #ffffff;
   border: 3px solid #ffffff !important;
   box-shadow: 0 0 0 3px #000000, 0 0 0 6px #ffffff !important;
 }
 
-/* ── DIVISOR DE ESCENA ───────────────────────────────────────────── */
+/* ── DIVISOR BLANCO PLANO ────────────────────────────────────────── */
 .divider {
   height: 4px;
   background: #ffffff;
-  margin: 24px 0;
+  margin: 20px 0;
 }
 
 /* ── SECCIONES ───────────────────────────────────────────────────── */
-.section { margin-bottom: 40px; } /* Distancia entre bloques reducida */
+.section { margin-bottom: 32px; } /* Menos separación entre los bloques */
 
 .section-label {
   font-family: var(--font-pixel);
   font-size: 11px;
   text-transform: uppercase;
   color: #ffffff;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -168,44 +168,47 @@ body {
 
 .section-title {
   font-family: var(--font-pixel);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: #ffffff;
 }
 
-/* ── CUADROS DE TEXTO (SOBRE MÍ, ESTUDIOS, CURSOS) ──────────────── */
+/* ── COMPONENTES INTERNOS DE LAS CAJAS ──────────────────────────── */
 .about-card {
-  padding: 24px;
-  font-size: 26px;
+  padding: 20px;
+  font-size: 24px;
 }
 .quote-author {
   display: block;
   text-align: right;
   color: var(--muted);
   font-family: var(--font-pixel);
-  font-size: 11px;
-  margin-top: 12px;
+  font-size: 10px;
+  margin-top: 8px;
 }
 
-/* ESTUDIOS */
+/* GRID DE ESTUDIOS */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px; /* Espaciado entre cajas alineado al diseño */
+  gap: 20px;
 }
 .card {
-  padding: 20px;
+  padding: 16px;
+}
+.card:hover {
+  border-color: #ffeb3b !important;
 }
 .card-icon {
-  font-size: 24px;
-  margin-bottom: 8px;
+  font-size: 22px;
+  margin-bottom: 6px;
 }
 .card-name {
   font-family: var(--font-pixel);
   font-size: 11px;
   color: #ffffff;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 .card-sub {
   font-family: var(--font-retro);
@@ -213,15 +216,18 @@ body {
   color: var(--muted);
 }
 
-/* CURSOS */
-.course-list { display: flex; flex-direction: column; gap: 24px; }
+/* LISTA DE CURSOS */
+.course-list { display: flex; flex-direction: column; gap: 20px; }
 
 .course-item {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 16px 20px;
+  padding: 12px 16px;
   text-decoration: none;
+}
+.course-item:hover {
+  border-color: #ffeb3b !important;
 }
 .course-item:hover .course-arrow {
   color: #ffeb3b;
@@ -230,42 +236,45 @@ body {
 .course-info { flex: 1; }
 .course-name {
   font-family: var(--font-pixel);
-  font-size: 11px;
+  font-size: 10px;
   color: #ffffff;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 .course-prof {
   font-family: var(--font-retro);
-  font-size: 18px;
+  font-size: 17px;
   color: var(--muted);
 }
 .course-arrow { 
   color: #ffffff; 
   font-family: var(--font-pixel); 
-  font-size: 14px; 
+  font-size: 12px; 
 }
 
-/* ── SECCIÓN AMIGOS ──────────────────────────────────────────────── */
+/* SECCIÓN AMIGOS */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 .contact-link {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px;
+  padding: 12px;
   text-decoration: none;
   font-family: var(--font-pixel);
-  font-size: 11px;
+  font-size: 10px;
+}
+.contact-link:hover {
+  border-color: #ffeb3b !important;
 }
 .contact-link:hover .contact-icon {
   color: #ffeb3b;
 }
 
 .contact-icon {
-  font-size: 14px;
+  font-size: 12px;
   color: #ffffff;
 }
 .contact-label {
@@ -280,18 +289,17 @@ body {
   text-align: center;
   font-family: var(--font-pixel);
   font-size: 9px;
-  color: #777777;
-  padding-top: 20px;
-  margin-top: 40px;
+  color: #666666;
+  padding-top: 16px;
+  margin-top: 32px;
   border-top: 4px solid #ffffff;
 }
 .footer span { color: #ffffff; }
 
 /* ── RESPONSIVE ──────────────────────────────────────────────────── */
 @media (max-width: 600px) {
-  .nav-bar  { padding: 4px; width: 90%; }
-  .nav-link { font-size: 8px; padding: 4px; }
-  .hero     { padding: 100px 0 16px; }
-  .about-card { font-size: 22px; }
-  .section-title { font-size: 14px; }
+  .nav-bar  { padding: 4px; width: 92%; }
+  .nav-link { font-size: 8px; padding: 4px 6px; }
+  .hero     { padding: 90px 0 12px; }
+  .about-card { font-size: 20px; }
 }
