@@ -86,7 +86,7 @@ body {
   padding: 0 20px 40px;
 }
 
-/* ── HERO & PROFILE LAYOUT ACTUALIZADO ───────────────────────────── */
+/* ── HERO & PROFILE LAYOUT (Sans-Fight Ajustado) ────────────────── */
 .hero {
   min-height: auto;
   padding: 90px 0 16px; 
@@ -103,13 +103,13 @@ body {
 .hero-profile-container {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Hace que se junten hacia la izquierda */
-  gap: 12px; /* Espacio reducido para acercar a Sans a tu nombre */
+  justify-content: flex-start; 
+  gap: 16px; /* Lo acerca un poco más a tu nombre */
   margin-bottom: 8px;
 }
 
 .hero-text-block {
-  flex-grow: 0; /* Evita que el bloque empuje la imagen lejos */
+  flex-grow: 0; 
 }
 
 .hero-avatar-block {
@@ -117,8 +117,14 @@ body {
   align-items: center;
 }
 
+.gif-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer; /* Cursor de mano para denotar que es clickeable */
+}
+
 .hero-avatar {
-  width: 110px; /* Imagen un poco más grande */
+  width: 120px; /* Tamaño más grande ideal para la animación */
   height: auto;
   image-rendering: pixelated;
   display: block;
@@ -305,7 +311,7 @@ body {
   .nav-bar  { padding: 4px; width: 92%; }
   .nav-link { font-size: 8px; padding: 4px 6px; }
   .hero     { padding: 90px 0 12px; }
-  .hero-profile-container { gap: 8px; }
-  .hero-avatar { width: 85px; }
+  .hero-profile-container { gap: 10px; }
+  .hero-avatar { width: 95px; } /* Ajuste de tamaño en pantallas pequeñas */
   .about-card { font-size: 20px; }
 }
